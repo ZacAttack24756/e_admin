@@ -1,0 +1,10 @@
+"AddonInfo"
+ {
+ 	"name"		"e_admin"
+ 	"version"	"1.1.1.1"
+ 	"up_date"	"1/17/2018"
+
+ 	"author_name"	"ZacAttack24756"
+
+ 	"info"		"A parody version of d_admin"
+ }
