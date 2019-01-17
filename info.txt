@@ -1,7 +1,7 @@
 "AddonInfo"
  {
  	"name"		"e_admin"
- 	"version"	"0.0.0.1"
+ 	"version"	"0.0.1.0"
  	"up_date"	"1/17/2018"
 
  	"author_name"	"ZacAttack24756"
