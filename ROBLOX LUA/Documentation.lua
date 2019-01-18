@@ -9,7 +9,7 @@
 	Text in "[]" is the group's name
 	Within the group, a lot of things can occur.
 	--> NOTE: Any "Non-Optional" items missing would delete the group through error checking
-	{
+	[] = {
 		"Rank"			[Num]		:	The Ranking Number of the group (Higher number means Higher Priority)
 		"Perms"			[Array:Str]	:	Core Permissions the group has (See Format Below)
 		~~ Optional ~~
