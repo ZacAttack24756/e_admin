@@ -1,8 +1,8 @@
-local children = script:GetChildren()
+--[[local children = script:GetChildren()
 script = Instance.new("ModuleScript")
 for _, child in pairs(children) do
     child.Parent = script
-end
+end]]--
 
 local Services = script.Services
 
