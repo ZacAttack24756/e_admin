@@ -8,7 +8,6 @@ local Settings = {
         ["Test"] = {
             Rank = 1,
             Perms = {},
-
         },
     }
 }
