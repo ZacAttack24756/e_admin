@@ -1,8 +1,14 @@
-Settings = {
-    Prefix = "!"
+---- Settings!! ----
+local Settings = {
+    Prefix = "!", -- Chat prefix for normal commands
+    Command = {
+        Categories = {"User"} -- New Categories (Not )
+    }
 }
-Core = {}
-Core.Utils = include("Modules/InitUtils.lua") -- Has a bunch of-you guessed it-Utils for this 
+
+---- Main Code ----
+local Core = {}
+Core.InitUtils = include("Modules/InitUtils.lua") -- Has a bunch of-you guessed it-Utils for this
 Core.Commands = include("Modules/Command.lua") --Contains the bulk of the built in commands
 
 function Chat(ply, text)
