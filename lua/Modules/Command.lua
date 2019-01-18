@@ -2,7 +2,7 @@ Command = {}
 
 Command["Help"] = {
     Category = "User"
-    Allias = {"?"}
+    Allias = {"?"},
 
     Desc = "Displays a list of commands you can run",
     LongDesc = [[
