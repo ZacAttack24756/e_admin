@@ -61,6 +61,8 @@ InitUtils.CompileCmds = function(ArrayCmds, Categories)
             end
         end
     end
+
+    return Cmds
 end
 
 return InitUtils
