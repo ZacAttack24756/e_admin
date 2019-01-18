@@ -5,8 +5,9 @@ local Settings = {
         Categories = {"User"} -- New Categories (Not )
     },
     Groups = {
-        {
-
+        ["Test"] = {
+            Rank = 1,
+            Perms = {},
         },
     }
 }
