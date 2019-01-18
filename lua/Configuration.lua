@@ -5,10 +5,15 @@ local Settings = {
         Categories = {}
     },
     Groups = {
-        ["Test"] = {
+        ["user"] = {
             Rank = 1,
-            Perms = {},
+            Perms = {".cmds.generic"},
+            Default = true
         },
+        ["operator"] = {
+            Rank = (2^30)
+            Override = ""
+        }
     }
 }
 
