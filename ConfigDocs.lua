@@ -1,4 +1,7 @@
 --[[
+    Documentation for the Main Configuration File
+
+    
     ---- Main Settings ----
     Prefix              [String]    :   The 1 character that will be the prefix for most chat commands
     Command             [Table]
