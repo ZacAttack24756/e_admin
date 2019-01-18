@@ -1,15 +1,18 @@
 --[[
     ---- Main Settings ----
+    Prefix              [String]    :   The 1 character that will be the prefix for most chat commands
+    Command             [Table]
+        Categories      [Array:Tab] :   An Array of User Defined Categories
+    Groups              [Array:Tab] :   The Main Group Startup Configuration (See Below)
 
-]]--
 
---[[
+
 	----    Group Making    ----
 
-	Text in "[]" is the group's name
+	Text in '[""]' is the group's name
 	Within the group, a lot of things can occur.
 	--> NOTE: Any "Non-Optional" items missing would delete the group through error checking
-	["Name"] = {
+	[""] = {
 		"Rank"			[Num]		:	The Ranking Number of the group (Higher number means Higher Priority)
 		"Perms"			[Array:Str]	:	Core Permissions the group has (See Format Below)
 		~~ Optional ~~

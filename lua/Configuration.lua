@@ -1,13 +1,14 @@
 ---- Settings!! ----
 local Settings = {
-    Prefix = "!", -- Chat prefix for normal commands
+    Prefix = "!",
     Command = {
-        Categories = {"User"} -- New Categories (Not )
+        Categories = {}
     },
     Groups = {
         ["Test"] = {
             Rank = 1,
             Perms = {},
+
         },
     }
 }
