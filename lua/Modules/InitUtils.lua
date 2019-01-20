@@ -44,7 +44,7 @@ InitUtils.CompileCmds = function(ArrayCmds, Categories)
                     end
 
                     -- Check if Permission is valid, else override it with
-                    local Found = string.match(v2.Permission, "[^\.%w|\*]*")
+                    local Found = string.match(v2.Permission, "[%.%w|%*]*")
                     if type(Found) ~= "string" or Found == "" then
                         ArrayCmds[i1][i2].Permission = ".cmds.generic"
                     end
