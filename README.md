@@ -7,4 +7,5 @@ No DRMs here ;)
 Credits
 ======
 
-The d_admin development team (Can't find their github)
+The d_admin development team (Can't find their github) for inspiration  
+Ulx Development Team for some inspiration and code ideas
