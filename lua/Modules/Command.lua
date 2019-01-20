@@ -1,7 +1,7 @@
 Command = {}
 
 Command["Help"] = {
-    Category = "User"
+    Category = "User",
     Allias = {"?"},
 
     Desc = "Displays a list of commands you can run",
@@ -9,12 +9,12 @@ Command["Help"] = {
         Displays a list of commands you can run
         Shows a description of the command, with Allias
     ]],
-    Usage = "[Command]"
+    Usage = "[Command]",
 
-    Permission = ".cmds.user.help"
+    Permission = ".cmds.user.help",
     Main = function(plr, Args)
 
-    end
+    end,
 }
 
 return Command
