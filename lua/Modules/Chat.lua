@@ -12,7 +12,7 @@ Chat:OnChat = function( ply, text, team )
             ply:PrintMessage(3, "Message Recived: ".. string.sub(text, 2))
             return "Test1234"
         end
-    enmd
+    end
 end
 
 return Chat
