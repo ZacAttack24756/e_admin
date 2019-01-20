@@ -2,13 +2,12 @@
 local Core = {}
 Core.Settings = include("Configuration.lua")
 Core.InitUtils = include("Modules/InitUtils.lua") -- Has a bunch of-you guessed it-Utils for this
-Core.Commands = include("Modules/Command.lua") --Contains the bulk of the built in commands
+Core.Chat = include("Modules/Chat.lua")
+Core.Commands = {}
 
-function Chat(ply, text)
-    if string.sub(text, 1, 1) == Core.Settings.Prefix then
-        ply:PrintMessage(3, "Message Recived: ".. string.sub(text, 2))
-        return "Test1234"
-    end
-end
+local Commands = include("Modules/Command.lua") --Contains the bulk of the built in commands
 
-hook.Add( "PlayerSay", "ChatHook", Chat)
+-- Initalize Commands
+
+
+hook.Add( "PlayerSay", "ChatHook", Core.Chat) -- Add the chat hook
