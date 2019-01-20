@@ -10,4 +10,4 @@ local Commands = include("Modules/Command.lua") --Contains the bulk of the built
 -- Initalize Commands
 
 
-hook.Add( "PlayerSay", "ChatHook", Core.Chat) -- Add the chat hook
+hook.Add( "PlayerSay", "ChatHook", Core.Chat.OnChat) -- Add the chat hook
