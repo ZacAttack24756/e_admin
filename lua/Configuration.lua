@@ -11,7 +11,7 @@ local Settings = {
             Default = true
         },
         ["operator"] = {
-            Rank = (2^30)
+            Rank = (2^30),
             Override = ""
         }
     }
