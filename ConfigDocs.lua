@@ -3,7 +3,7 @@
 
     ---- Main Settings ----
 
-    Prefix              [String]    :   The 1 character that will be the prefix for most chat commands
+    Prefix              [String]    :   The 1 character that will be the prefix for most chat commands, Is Case Sensitive
     Command             [Table]
         Categories      [Array:Tab] :   An Array of User Defined Categories
     Groups              [Array:Tab] :   The Main Group Startup Configuration (See "Group Making")
