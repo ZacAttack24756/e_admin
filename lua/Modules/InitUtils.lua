@@ -88,6 +88,7 @@ MTable:GroupHasPerm = function(Perm)
 		for v2 in string.gmatch(Perm, "(\.[%w]*)") do
 			table.insert(PComp, v2)
 		end
+
 		-- Compare them Side by Side
 		for i2, v2 in pairs(PComp) do
             -- If the node between both is the same
@@ -107,37 +108,6 @@ MTable:GroupHasPerm = function(Perm)
 
 		return false
 	end
-end
-
-MTable:CheckThisGroupPerm = function(Groups, Permission)
-    if type(Previous) ~= "table" then
-        Previous = {}
-    end
-
-    local function Loop(GN, P)
-        local TargetGroup = Groups[GN]
-        if type(TargetGroup) == "table" then
-            local CheckThis = false
-
-            -- Cycle through Group's Own Permissions
-            TargetGroup:PermCheck()
-
-            if CheckThis == true then
-                return true
-            else
-                local Result = false
-                for _, v in pairs(rawget(TargetGroup, "Inheritance"))  do
-                    if ObjectInArray(Previous, v) == false and type(Groups[v]) == "table" then
-                        table.insert(Previous, v)
-                        Result = Result or Loop()
-                    end
-                end
-                return Result
-            end
-        end
-    end
-
-    Loop()
 end
 
 InitUtils.CreateGroup = function(Data)
