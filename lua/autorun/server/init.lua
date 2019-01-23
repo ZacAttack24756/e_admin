@@ -1,13 +1,6 @@
----- Main Code ----
-local Core = {}
-Core.Settings = include("Configuration.lua")
-Core.InitUtils = include("Modules/InitUtils.lua") -- Has a bunch of-you guessed it-Utils for this
-Core.Chat = include("Modules/Chat.lua")
-Core.Commands = {}
+-- Adopted a new structure, one that is simular in function to Ulx Admin
+if not e_admin then
+    e_admin = {}
 
-local Commands = include("Modules/Command.lua") --Contains the bulk of the built in commands
-
--- Initalize Commands
-
-
-hook.Add( "PlayerSay", "ChatHook", Core.Chat.OnChat) -- Add the chat hook
+    -- Load all the good stuff
+end
