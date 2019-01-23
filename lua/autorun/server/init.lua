@@ -25,7 +25,8 @@ if not e_admin then
     end
 
     local LoadArray = {
-        "Configuration.lua"
+        "Configuration.lua",
+        "Modules/Utils.lua",
     }
     MasterLoadFiles(LoadArray)
 
