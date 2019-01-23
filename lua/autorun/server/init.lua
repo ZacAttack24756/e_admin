@@ -11,6 +11,7 @@ if not e_admin then
                 LongestLength = string.len(File)
             end
         end
+        LongestLength = math.max(LongestLength, 13)
 
         print("__" .. string.rep("_", LongestLength) .. "__")
         print("| Loading Files" .. string.rep(" ", LongestLength - 13) .. " |")
