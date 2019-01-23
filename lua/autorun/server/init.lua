@@ -24,5 +24,15 @@ if not e_admin then
         print("|_" .. string.rep("_", LongestLength) .. "_|")
     end
 
+    local LoadArray = {
+        "Configuration.lua"
+    }
+    MasterLoadFiles(LoadArray)
 
+    --"______________________________"
+    --"| Loading Files              |"
+    --"|____________________________|"
+    --"| Loaded Configuration.lua   |"
+    --"| Loaded Modules/test.lua    |"
+    --"|____________________________|"
 end
