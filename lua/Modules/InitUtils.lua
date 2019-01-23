@@ -122,6 +122,7 @@ InitUtils.CreateGroup = function(GroupName, Data)
 	-- Main Meta Tabling
 	local Content = {}
 	Content.Name = GroupName
+    Content.Rank = Data.Rank
 
 	-- Permission Filtering (Every permission has to have ".<blabla>.<blabla>" etc)
 	Content.Perms = {}
