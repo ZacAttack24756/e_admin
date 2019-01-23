@@ -110,10 +110,10 @@ MTable:GroupHasPerm = function(Perm)
 	end
 end
 
-InitUtils.CreateGroup = function(Data)
+InitUtils.CreateGroup = function(GroupName, Data)
 	-- Checks the main Table, and The required things
+	if type(GroupName) ~= "string" or GroupName == "" then return "Name is not a string!" end
 	if type(Data) ~= "table" then return "Data is not a Table!" end
-	if type(Data.Name) ~= "string" or Data.Name == "" then return "Name is not a string!" end
 	if type(Data.Rank) ~= "number" then return "Data.Rank is not a number!" end
 	if type(Data.Perms) ~= "table" then return "Data.Perms is not an array!" end
 
@@ -121,7 +121,7 @@ InitUtils.CreateGroup = function(Data)
 
 	-- Main Meta Tabling
 	local Content = {}
-	Content.Name = Data.Name
+	Content.Name = GroupName
 
 	-- Permission Filtering (Every permission has to have ".<blabla>.<blabla>" etc)
 	Content.Perms = {}
@@ -146,20 +146,29 @@ InitUtils.CreateGroup = function(Data)
 	end
 
 	Content.RankLadder = "Default"
-	if type(Data.RankLadder) == "string" then
+	if type(Data.RankLadder) == "string" and (Data.RankLadder ~= "" or string.lower(Data.RankLadder) ~= "default") then
 		Content.RankLadder = Data.RankLadder
 	end
 
-	Contet.Inheritance = {}
-	if type(Data.Inheritance) == "string" then
+	Content.Inheritance = {}
+	if type(Data.Inheritance) == "string" and Data.Inheritance ~= GroupName then
 		Content.Inheritance = {Data.Inheritance}
 	elseif type(Data.Inheritance) == "table" then
 		for _, v in pairs(Data.Inheritance) do
-			if type(v) == "string" then
+			if type(v) == "string" and v ~= GroupName then
 				table.insert(Content.Inheritance, v)
 			end
 		end
 	end
+
+    Content.Override = ""
+    if type(Data.Override) == "string" then
+        local O = Data.Override
+        if (O == "NoAccess" or O == "Administrator") then
+            Content.Override = O
+        end
+    end
+
 
 	-- Creates Table, and returns it
 	local self = setmetatable(Content, MTable)
