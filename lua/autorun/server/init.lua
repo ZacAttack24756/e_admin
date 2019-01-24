@@ -12,15 +12,17 @@ local function MasterLoadFiles(Files)
             LongestLength = string.len(File)
         end
     end
-    LongestLength = math.max(LongestLength, 13)
+    LongestLength = math.max(LongestLength, 15)
+    local Number = (LongestLength - 7)/2
 
     print("__" .. string.rep("_", LongestLength) .. "__")
+    print("| " .. string.rep(" ", math.floor(Number)) .. "e_admin" .. string.rep(" ", math.ceil(Number)) .. " |")
     print("| Loading Files" .. string.rep(" ", LongestLength - 13) .. " |")
     print("|_" .. string.rep("_", LongestLength) .. "_|")
     for i, File in pairs(Files) do
         if type(File) == "string" then
-            local Spaces = math.max(LongestLength - string.len(File), 2)
-            if string.sub(File, 1, 9) == "Coroutine" then
+            local Spaces = LongestLength - string.len(File)
+            if string.sub(File, 1, 4) == "Func" then
                 include(File)()
 
                 print("| Executed " .. File .. string.rep(" ", Spaces - 2) .. " |")
@@ -33,21 +35,15 @@ local function MasterLoadFiles(Files)
 
                 print("| Mounted " .. File .. string.rep(" ", Spaces - 1) .. " |")
             end
-        elseif type(File) == "function" then
-            File()
         end
     end
     print("|_" .. string.rep("_", LongestLength) .. "_|")
 end
 
-local ConfigFunction = function()
-    e_admin.RunningConfig = e_admin.ConfigFile
-end
-
 -- An array that specifies in what order files should be loaded
 local LoadLibrary = {
     "Configuration.lua", -- Contains the Configuration scripted in
-    ConfigFunction, -- Quickly setup the configuration so nothing dies
+    "Func/PrepConfig.lua", -- Quickly setup the configuration so nothing dies
     "Module/Utils.lua", -- Contains a plethora of helper functions
     "Module/InitUtils.lua", -- Contains functions used in this script's initalization
     "Module/Command.lua", -- Contains all of this script's built in commands
@@ -59,8 +55,10 @@ MasterLoadFiles(LoadLibrary)
 --"| Loading Files                 |"
 --"|_______________________________|"
 --"| Mounted Configuration.lua     |"
+--"| Executed Func/PrepConfig.lua  |"
 --"| Loaded Module/Utils.lua       |"
 --"| Loaded Module/InitUtils.lua   |"
 --"| Loaded Module/Command.lua     |"
+--"| Loaded Module/Chat.lua        |"
 --"|_______________________________|"
 end
