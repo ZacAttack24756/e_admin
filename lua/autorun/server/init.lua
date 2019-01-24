@@ -19,9 +19,20 @@ local function MasterLoadFiles(Files)
     print("|_" .. string.rep("_", LongestLength) .. "_|")
     for i, File in pairs(Files) do
         if type(File) == "string" then
-            include(File)
-            local Spaces = LongestLength - string.len(File)
-            print("| Loaded " .. File .. string.rep(" ", Spaces) .. " |" )
+            local Spaces = math.max(LongestLength - string.len(File), 2)
+            if string.sub(File, 1, 9) == "Coroutine" then
+                include(File)()
+
+                print("| Executed " .. File .. string.rep(" ", Spaces - 2) .. " |")
+            elseif string.sub(File, 1, 6) == "Module" then
+                include(File)
+
+                print("| Loaded " .. File .. string.rep(" ", Spaces) .. " |" )
+            else
+                include(File)
+
+                print("| Mounted " .. File .. string.rep(" ", Spaces - 1) .. " |")
+            end
         elseif type(File) == "function" then
             File()
         end
@@ -47,7 +58,7 @@ MasterLoadFiles(LoadLibrary)
 --"_________________________________"
 --"| Loading Files                 |"
 --"|_______________________________|"
---"| Loaded Configuration.lua      |"
+--"| Mounted Configuration.lua     |"
 --"| Loaded Module/Utils.lua       |"
 --"| Loaded Module/InitUtils.lua   |"
 --"| Loaded Module/Command.lua     |"
