@@ -44,13 +44,13 @@ end
 
 -- An array that specifies in what order files should be loaded
 local LoadLibrary = {
-    "Info/defConfig.lua",
+    "lua/defConfig.lua", -- Has Default Configuration
     "Configuration.lua", -- Contains the Configuration scripted in
-    "Func/PrepConfig.lua", -- Quickly setup the configuration so nothing dies
-    "Module/Utils.lua", -- Contains a plethora of helper functions
-    "Module/InitUtils.lua", -- Contains functions used in this script's initalization
-    "Module/Command.lua", -- Contains all of this script's built in commands
-    "Module/Chat.lua", -- Contains all of the functons for chat
+    "func/PrepConfig.lua", -- Quickly setup the configuration so nothing dies
+    "module/Utils.lua", -- Contains a plethora of helper functions
+    "module/InitUtils.lua", -- Contains functions used in this script's initalization
+    "module/Command.lua", -- Contains all of this script's built in commands
+    "module/Chat.lua", -- Contains all of the functons for chat
 }
 MasterLoadFiles(LoadLibrary)
 
@@ -59,9 +59,9 @@ MasterLoadFiles(LoadLibrary)
 --"|_______________________________|"
 --"| Mounted Configuration.lua     |"
 --"| Executed Func/PrepConfig.lua  |"
---"| Loaded Module/Utils.lua       |"
---"| Loaded Module/InitUtils.lua   |"
---"| Loaded Module/Command.lua     |"
---"| Loaded Module/Chat.lua        |"
+--"| Loaded module/Utils.lua       |"
+--"| Loaded module/InitUtils.lua   |"
+--"| Loaded module/Command.lua     |"
+--"| Loaded module/Chat.lua        |"
 --"|_______________________________|"
 end
