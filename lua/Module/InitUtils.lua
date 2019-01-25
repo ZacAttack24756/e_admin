@@ -71,7 +71,7 @@ local MTable = {}
 MTable.__index = MTable
 -- Insert Meta things here
 
-MTable:GroupHasPerm = function(Perm)
+MTable:GroupHasPerm(Perm)
 	for i1, v1 in pairs(self.Perms) do
         -- Checks if the current permission for the target permission
 		if v1 == Perm then
@@ -82,11 +82,11 @@ MTable:GroupHasPerm = function(Perm)
 
 		-- Split each into it's components
 		local VComp = {}
-		for v2 in string.gmatch(v1  , "(\.[%w]*)") do
+		for v2 in string.gmatch(v1, "(%.[%w]*)") do
 			table.insert(VComp, v2)
 		end
 		local PComp = {}
-		for v2 in string.gmatch(Perm, "(\.[%w]*)") do
+		for v2 in string.gmatch(Perm, "(%.[%w]*)") do
 			table.insert(PComp, v2)
 		end
 
@@ -128,7 +128,7 @@ InitUtils.CreateGroup = function(GroupName, Data)
 	-- Permission Filtering (Every permission has to have ".<blabla>.<blabla>" etc)
 	Content.Perms = {}
 	for _, value in pairs(Data.Perms) do
-		local Pattern = "[\.%w|\*]*"
+		local Pattern = "[%.%w|%*]*"
 		local Found = string.match(value, Pattern)
 
 		-- If theres a match
