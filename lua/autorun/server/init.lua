@@ -45,7 +45,6 @@ end
 -- An array that specifies in what order files should be loaded
 local LoadLibrary = {
     "lua/defConfig.lua", -- Has Default Configuration
-    "Configuration.lua", -- Contains the Configuration scripted in
     "func/config.lua", -- Quickly setup the configuration so nothing dies
     "module/Utils.lua", -- Contains a plethora of helper functions
     "module/InitUtils.lua", -- Contains functions used in this script's initalization

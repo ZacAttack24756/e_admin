@@ -24,8 +24,8 @@
 		"Inheritance"	[Array/Str]	:	Group names this group 'inherits' permissions from. Specify "Rank" to inherit from any lower-ranking groups
         "Options"       [Table]     :   Options for this group
         {
-            "TargetNumber"  [Num]       :   A number specifing ranks this rank can target, Can be configured on command basis, but this is the default for all
-            "TargetTable"   [Tab]       :   An table that is specific TargetNumbers for certian commands with this group
+            "TargetNumber"  [Num]   :   A number specifing ranks this rank can target, Can be configured on command basis, but this is the default for all
+            "TargetTable"   [Tab]   :   An table that is specific TargetNumbers for certian commands with this group
             "Override"      [Str]   :   Define a specific Permission Override (See "Permission Overrides")
             "Aquisition"    [Str]   :   Define a specific Aquisition Setting (See "Aquisition Options")
         }

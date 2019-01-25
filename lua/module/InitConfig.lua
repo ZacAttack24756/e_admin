@@ -189,7 +189,7 @@ InitUtils.CreateGroup = function(GroupName, Data)
 	end
 
     Content.Options = {}
-    Content.Options.TargetDefault = 0
+    Content.Options.TargetDefault = 2^31
     Content.Options.TargetTable = {}
     if type(Data.Options) == "table" then
         if type(Data.TargetNumber) == "number" then

@@ -16,6 +16,4 @@ local Settings = {
     }
 }
 
-if e_admin then
-    e_admin.ConfigFile = Settings
-end
+return Settings
