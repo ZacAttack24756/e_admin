@@ -37,3 +37,7 @@ Groups = {
     }
 }
 }
+
+if e_admin then
+    e_admin.defConfig = Settings
+end
