@@ -27,6 +27,9 @@ Groups = {
     ["superadmin"] = {
         Rank = 300,
         Perms = {".*"},
+        Options = {
+            Aquisition = "Administrator"
+        }
     },
     ["owner"] = {
         Rank = 1000,

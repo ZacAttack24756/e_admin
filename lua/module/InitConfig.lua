@@ -164,29 +164,27 @@ InitUtils.CreateGroup = function(GroupName, Data)
 		end
 	end
 
-    Content.TargetDefault = 2^31
-    if type(Data.TargetNumber) == "number" then
-        local Num = Data.TargetNumber
-        if Num >= 0 and Num < 2^31 then
-            Content.TargetDefault = Num
+    Content.Options = {}
+    Content.Options.TargetDefault = 0
+    Content.Options.TargetTable = {}
+    if type(Data.Options) == "table" then
+        if type(Data.TargetNumber) == "number" then
+            local Num = Data.TargetNumber
+            if Num >= 0 and Num < 2^31 then
+                Content.TargetDefault = Num
+            end
         end
-    end
-
-    Content.TargetTable = {}
-    if type(Data.TargetTable) == "table" then
-        for index, value in pairs(Data.TargetTable) do
-            if type(index) == "string" and type(value) == "number" then
-                if Utils.IndexInTable(Content.TargetTable, index) == false then
-                    if value >= 0 and Num < 2^31 then
-                        Content.TargetTable[index] = value
+        if type(Data.TargetTable) == "table" then
+            for index, value in pairs(Data.TargetTable) do
+                if type(index) == "string" and type(value) == "number" then
+                    if Utils.IndexInTable(Content.TargetTable, index) == false then
+                        if value >= 0 and Num < 2^31 then
+                            Content.TargetTable[index] = value
+                        end
                     end
                 end
             end
         end
-    end
-
-    Content.Options = {}
-    if type(Data.Options) == "table" then
         if type(Data.Options.Override) then
             local O = Data.Options.Override
             if (O == "NoAccess" or O == "Administrator") then
@@ -199,6 +197,10 @@ InitUtils.CreateGroup = function(GroupName, Data)
                 Content.Options.Aquisition = A
             end
         end
+    end
+
+    if Content.RankLadder == "Default" and type(Data.DefOptions) == "table" then
+        -- Insert stuff here
     end
 
 	-- Creates Table, and returns it
