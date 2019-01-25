@@ -71,7 +71,30 @@ local MTable = {}
 MTable.__index = MTable
 -- Insert Meta things here
 
-MTable:GroupHasPerm(Perm)
+-- Easy User Management --
+function MTable:GetUsers()
+    local Copy = Utils.TableCopy(self.Users)
+    return Copy
+end
+function MTable:AddUser(SteamID)
+    if type(SteamID) == "string" then
+        table.insert(self.Users, SteamID)
+        return true
+    end
+    return false
+end
+function MTable:RemoveUser(SteamID)
+    if type(SteamID) == "string" and Utils.ObjInTable(self.Users, SteamID) then
+        local Index = Utils.GetIndexFromObj(self.Users, SteamID)
+        if type(Index) == "number" then
+            table.remove(SteamID, Index)
+            return true
+        end
+    end
+    return false
+end
+
+function MTable:GroupHasPerm(Perm)
 	for i1, v1 in pairs(self.Perms) do
         -- Checks if the current permission for the target permission
 		if v1 == Perm then
@@ -121,6 +144,7 @@ InitUtils.CreateGroup = function(GroupName, Data)
 
 	-- Main Meta Tabling
 	local Content = {}
+    Content.Users = {}
 	Content.Name = GroupName
     Content.Rank = Data.Rank
 
