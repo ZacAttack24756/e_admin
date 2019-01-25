@@ -12,7 +12,7 @@ Command["Help"] = {
     ]],
     Usage = "[Command]",
 
-    Permission = ".cmds.user.help",
+    Permissions = {".cmds.user.help"},
     Main = function(plr, Args)
 
     end,

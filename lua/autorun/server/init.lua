@@ -13,12 +13,14 @@ local function MasterLoadFiles(Files)
         end
     end
     LongestLength = math.max(LongestLength, 15)
-    local Number = (LongestLength - 7)/2
+    local N1 = (LongestLength - 7)/2
+    local N2 = (LongestLength - 13)/2
+    local N3 = math.floor(LongestLength * 1.5)
 
-    print("__" .. string.rep("_", LongestLength) .. "__")
-    print("| " .. string.rep(" ", math.floor(Number)) .. "e_admin" .. string.rep(" ", math.ceil(Number)) .. " |")
-    print("| Loading Files" .. string.rep(" ", LongestLength - 13) .. " |")
-    print("|_" .. string.rep("_", LongestLength) .. "_|")
+    print("__" .. string.rep("_", N3) .. "__")
+    print("| " .. string.rep(" ", math.floor(N1)) .. "e_admin" .. string.rep(" ", math.ceil(N1)) .. " |")
+    print("| " .. string.rep(" ", math.floor(N2)) .. "Loading Files" .. string.rep(" ", math.ceil(N2)) .. " |")
+    print("|_" .. string.rep("_", N3) .. "_|")
     for i, File in pairs(Files) do
         if type(File) == "string" then
             local Spaces = LongestLength - string.len(File)
@@ -37,11 +39,12 @@ local function MasterLoadFiles(Files)
             end
         end
     end
-    print("|_" .. string.rep("_", LongestLength) .. "_|")
+    print("|_" .. string.rep("_", N3) .. "_|")
 end
 
 -- An array that specifies in what order files should be loaded
 local LoadLibrary = {
+    "Info/defConfig.lua",
     "Configuration.lua", -- Contains the Configuration scripted in
     "Func/PrepConfig.lua", -- Quickly setup the configuration so nothing dies
     "Module/Utils.lua", -- Contains a plethora of helper functions
