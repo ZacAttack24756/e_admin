@@ -24,11 +24,11 @@ local function MasterLoadFiles(Files)
     for i, File in pairs(Files) do
         if type(File) == "string" then
             local Spaces = LongestLength - string.len(File)
-            if string.sub(File, 1, 4) == "Func" then
+            if string.sub(File, 1, 4) == "func" then
                 include(File)()
 
                 print("| Executed " .. File .. string.rep(" ", Spaces - 2) .. " |")
-            elseif string.sub(File, 1, 6) == "Module" then
+            elseif string.sub(File, 1, 6) == "module" then
                 include(File)
 
                 print("| Loaded " .. File .. string.rep(" ", Spaces) .. " |" )
