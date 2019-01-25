@@ -115,8 +115,7 @@ InitUtils.CreateGroup = function(GroupName, Data)
 	-- Checks the main Table, and The required things
 	if type(GroupName) ~= "string" or GroupName == "" then return "Name is not a string!" end
 	if type(Data) ~= "table" then return "Data is not a Table!" end
-	if type(Data.Rank) ~= "number" then return "Data.Rank is not a number!" end
-	if type(Data.Perms) ~= "table" then return "Data.Perms is not an array!" end
+	if type(Data.Rank) ~= "number" and Data.Rank >= 0 and Data.Rank =< 2^31 then return "Data.Rank is not a number!" end
 
 	----    Required Error Checking Done    ----
 
@@ -127,20 +126,22 @@ InitUtils.CreateGroup = function(GroupName, Data)
 
 	-- Permission Filtering (Every permission has to have ".<blabla>.<blabla>" etc)
 	Content.Perms = {}
-	for _, value in pairs(Data.Perms) do
-		local Pattern = "[%.%w|%*]*"
-		local Found = string.match(value, Pattern)
+    if type(Data.Perms) == "table" then
+    	for _, value in pairs(Data.Perms) do
+    		local Pattern = "[%.%w|%*]*"
+    		local Found = string.match(value, Pattern)
 
-		-- If theres a match
-		if type(Found) == "string" and Found ~= "" then
-			-- Passes a "-" along
-			if string.sub(value, 1, 1) == "-" then
-				Found = "-" .. Found
-			end
+    		-- If theres a match
+    		if type(Found) == "string" and Found ~= "" then
+    			-- Passes a "-" along
+    			if string.sub(value, 1, 1) == "-" then
+    				Found = "-" .. Found
+    			end
 
-			table.insert(Content.Perms, Found)
-		end
-	end
+    			table.insert(Content.Perms, Found)
+    		end
+    	end
+    end
 
 	Content.Default = false
 	if type(Data.Default) == "bool" then
@@ -163,14 +164,42 @@ InitUtils.CreateGroup = function(GroupName, Data)
 		end
 	end
 
-    Content.Override = ""
-    if type(Data.Override) == "string" then
-        local O = Data.Override
-        if (O == "NoAccess" or O == "Administrator") then
-            Content.Override = O
+    Content.TargetDefault = 2^31
+    if type(Data.TargetNumber) == "number" then
+        local Num = Data.TargetNumber
+        if Num >= 0 and Num < 2^31 then
+            Content.TargetDefault = Num
         end
     end
 
+    Content.TargetTable = {}
+    if type(Data.TargetTable) == "table" then
+        for index, value in pairs(Data.TargetTable) do
+            if type(index) == "string" and type(value) == "number" then
+                if Utils.IndexInTable(Content.TargetTable, index) == false then
+                    if value >= 0 and Num < 2^31 then
+                        Content.TargetTable[index] = value
+                    end
+                end
+            end
+        end
+    end
+
+    Content.Options = {}
+    if type(Data.Options) == "table" then
+        if type(Data.Options.Override) then
+            local O = Data.Options.Override
+            if (O == "NoAccess" or O == "Administrator") then
+                Content.Options.Override = O
+            end
+        end
+        if type(Data.Options.Aquisition) then
+            local A = Data.Options.Aquisition
+            if (A == "Administrator" or O == "Console") then
+                Content.Options.Aquisition = A
+            end
+        end
+    end
 
 	-- Creates Table, and returns it
 	local self = setmetatable(Content, MTable)
