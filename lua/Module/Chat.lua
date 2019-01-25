@@ -16,4 +16,5 @@ Chat.OnChat = function( ply, text, team )
 end
 
 e_admin.Chat = Chat
+
 end

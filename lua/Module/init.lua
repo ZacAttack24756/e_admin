@@ -206,6 +206,6 @@ InitUtils.CreateGroup = function(GroupName, Data)
 	return self
 end
 
-
 e_admin.InitUtils = InitUtils
+
 end
