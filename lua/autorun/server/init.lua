@@ -46,7 +46,7 @@ end
 local LoadLibrary = {
     "lua/defConfig.lua", -- Has Default Configuration
     "Configuration.lua", -- Contains the Configuration scripted in
-    "func/PrepConfig.lua", -- Quickly setup the configuration so nothing dies
+    "func/config.lua", -- Quickly setup the configuration so nothing dies
     "module/Utils.lua", -- Contains a plethora of helper functions
     "module/InitUtils.lua", -- Contains functions used in this script's initalization
     "module/Command.lua", -- Contains all of this script's built in commands
@@ -57,8 +57,9 @@ MasterLoadFiles(LoadLibrary)
 --"_________________________________"
 --"| Loading Files                 |"
 --"|_______________________________|"
+--"| Mounted lua/defConfig.lua     |"
 --"| Mounted Configuration.lua     |"
---"| Executed Func/PrepConfig.lua  |"
+--"| Executed func/PrepConfig.lua  |"
 --"| Loaded module/Utils.lua       |"
 --"| Loaded module/InitUtils.lua   |"
 --"| Loaded module/Command.lua     |"

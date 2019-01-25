@@ -12,7 +12,6 @@ local Settings = {
         },
         ["operator"] = {
             Rank = (2^30),
-            Override = ""
         }
     }
 }
