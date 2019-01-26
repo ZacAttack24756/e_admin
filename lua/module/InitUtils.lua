@@ -138,7 +138,7 @@ InitUtils.CreateGroup = function(GroupName, Data)
 	-- Checks the main Table, and The required things
 	if type(GroupName) ~= "string" or GroupName == "" then return "Name is not a string!" end
 	if type(Data) ~= "table" then return "Data is not a Table!" end
-	if type(Data.Rank) ~= "number" and Data.Rank >= 0 and Data.Rank =< 2^31 then return "Data.Rank is not a number!" end
+	if type(Data.Rank) ~= "number" and Data.Rank >= 0 and Data.Rank <= 2^31 then return "Data.Rank is not a number!" end
 
 	----    Required Error Checking Done    ----
 

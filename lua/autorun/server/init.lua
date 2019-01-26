@@ -12,34 +12,40 @@ local function MasterLoadFiles(Files)
             LongestLength = string.len(File)
         end
     end
-    LongestLength = math.max(LongestLength, 15)
-    local N1 = (LongestLength - 7)/2
-    local N2 = (LongestLength - 13)/2
-    local N3 = math.floor(LongestLength * 1.5)
+    LongestLength = math.max(LongestLength, 13)
+    local N1 = (LongestLength - 7)/1.3
+    local N2 = (LongestLength - 13)
+    local N3 = math.floor(LongestLength * 1.45)
+    local N4 = (LongestLength - 10)/1.225
 
-    print("__" .. string.rep("_", N3) .. "__")
-    print("| " .. string.rep(" ", math.floor(N1)) .. "e_admin" .. string.rep(" ", math.ceil(N1)) .. " |")
-    print("| " .. string.rep(" ", math.floor(N2)) .. "Loading Files" .. string.rep(" ", math.ceil(N2)) .. " |")
-    print("|_" .. string.rep("_", N3) .. "_|")
+    print("")
+    print("╔" .. string.rep("═", N3) .. "╗")
+    print("║ " .. string.rep(" ", math.floor(N1)) .. "e_admin" .. string.rep(" ", math.ceil(N1)) .. " ║")
+    print("║ " .. string.rep(" ", math.floor(N2)) .. "Loading Files" .. string.rep(" ", math.ceil(N2)) .. " ║")
+    print("╠" .. string.rep("═", N3) .. "╣")
     for i, File in pairs(Files) do
         if type(File) == "string" then
             local Spaces = LongestLength - string.len(File)
             if string.sub(File, 1, 4) == "func" then
                 include(File)()
 
-                print("| Executed " .. File .. string.rep(" ", Spaces - 2) .. " |")
+                print("║ Executed " .. File .. string.rep(" ", Spaces - 2) .. " ║")
             elseif string.sub(File, 1, 6) == "module" then
                 include(File)
 
-                print("| Loaded " .. File .. string.rep(" ", Spaces) .. " |" )
+                print("║ Loaded " .. File .. string.rep(" ", Spaces) .. " ║" )
             else
                 include(File)
 
-                print("| Mounted " .. File .. string.rep(" ", Spaces - 1) .. " |")
+                print("║ Mounted " .. File .. string.rep(" ", Spaces - 1) .. " ║")
             end
         end
     end
-    print("|_" .. string.rep("_", N3) .. "_|")
+    print("╠" .. string.rep("═", N3) .. "╣")
+    print("║ " .. string.rep(" ", math.floor(N1)) .. "e_admin" .. string.rep(" ", math.ceil(N1)) .. " ║")
+    print("║ " .. string.rep(" ", math.floor(N4)) .. "Initalized" .. string.rep(" ", math.ceil(N4)) .. " ║")
+    print("╚" .. string.rep("═", N3) .. "╝")
+    print("")
 end
 
 -- An array that specifies in what order files should be loaded
@@ -53,15 +59,20 @@ local LoadLibrary = {
 }
 MasterLoadFiles(LoadLibrary)
 
---"_________________________________"
---"| Loading Files                 |"
---"|_______________________________|"
---"| Mounted lua/defConfig.lua     |"
---"| Mounted Configuration.lua     |"
---"| Executed func/PrepConfig.lua  |"
---"| Loaded module/Utils.lua       |"
---"| Loaded module/InitUtils.lua   |"
---"| Loaded module/Command.lua     |"
---"| Loaded module/Chat.lua        |"
---"|_______________________________|"
+--[[
+    ╔═════════════════════════════╗
+    ║           e_admin           ║
+    ║        Loading Files        ║
+    ╠═════════════════════════════╣
+    ║ Mounted lua/defConfig.lua   ║
+    ║ Executed func/config.lua    ║
+    ║ Loaded module/Utils.lua     ║
+    ║ Loaded module/InitUtils.lua ║
+    ║ Loaded module/Command.lua   ║
+    ║ Loaded module/Chat.lua      ║
+    ╠═════════════════════════════╣
+    ║           e_admin           ║
+    ║         Initalized          ║
+    ╚═════════════════════════════╝
+]]--
 end
