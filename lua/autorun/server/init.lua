@@ -13,16 +13,16 @@ local function MasterLoadFiles(Files)
         end
     end
     LongestLength = math.max(LongestLength, 13)
-    local N1 = (LongestLength - 7)/1.3
-    local N2 = (LongestLength - 13)
-    local N3 = math.floor(LongestLength * 1.45)
+    local N1 = math.floor(LongestLength * 1.45)
+    local N2 = (LongestLength - 7)/1.3
+    local N3 = (LongestLength - 13)
     local N4 = (LongestLength - 10)/1.225
 
     print("")
-    print("╔" .. string.rep("═", N3) .. "╗")
-    print("║ " .. string.rep(" ", math.floor(N1)) .. "e_admin" .. string.rep(" ", math.ceil(N1)) .. " ║")
-    print("║ " .. string.rep(" ", math.floor(N2)) .. "Loading Files" .. string.rep(" ", math.ceil(N2)) .. " ║")
-    print("╠" .. string.rep("═", N3) .. "╣")
+    print("╔" .. string.rep("═", N1) .. "╗")
+    print("║ " .. string.rep(" ", math.floor(N2)) .. "e_admin" .. string.rep(" ", math.ceil(N2)) .. " ║")
+    print("║ " .. string.rep(" ", math.floor(N3)) .. "Loading Files" .. string.rep(" ", math.ceil(N3)) .. " ║")
+    print("╠" .. string.rep("═", N1) .. "╣")
     for i, File in pairs(Files) do
         if type(File) == "string" then
             local Spaces = LongestLength - string.len(File)
@@ -41,10 +41,10 @@ local function MasterLoadFiles(Files)
             end
         end
     end
-    print("╠" .. string.rep("═", N3) .. "╣")
-    print("║ " .. string.rep(" ", math.floor(N1)) .. "e_admin" .. string.rep(" ", math.ceil(N1)) .. " ║")
+    print("╠" .. string.rep("═", N1) .. "╣")
+    print("║ " .. string.rep(" ", math.floor(N2)) .. "e_admin" .. string.rep(" ", math.ceil(N2)) .. " ║")
     print("║ " .. string.rep(" ", math.floor(N4)) .. "Initalized" .. string.rep(" ", math.ceil(N4)) .. " ║")
-    print("╚" .. string.rep("═", N3) .. "╝")
+    print("╚" .. string.rep("═", N1) .. "╝")
     print("")
 end
 
