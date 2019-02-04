@@ -10,6 +10,9 @@ Prefix = "!",
 Command = {
     Categories = {},
 },
+Addins = {
+    ["bHud"] = false,
+},
 Groups = {
     ["user"] = {
         Rank = 0,

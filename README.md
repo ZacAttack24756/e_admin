@@ -12,7 +12,7 @@ Find "e_admin/lua/Configuration.lua", you can edit startup configuration there.
 
 Refer to "e_admin/ConfigDocs.lua" on how to properly setup startup configuration.
 
-""Credits
+# Credits
 ======
 
 The d_admin development team (Can't find their github) for inspiration

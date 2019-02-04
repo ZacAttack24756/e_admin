@@ -4,6 +4,9 @@ local Settings = {
     Command = {
         Categories = {}
     },
+    Addins = {
+        ["bHud"] = false,
+    },
     Groups = {
         ["user"] = {
             Rank = 1,
