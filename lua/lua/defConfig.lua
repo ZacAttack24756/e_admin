@@ -12,6 +12,7 @@ Command = {
 },
 Addins = {
     ["bHud"] = false,
+    ["regenHealth"] = false,
 },
 Groups = {
     ["user"] = {

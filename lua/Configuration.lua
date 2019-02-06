@@ -5,7 +5,8 @@ local Settings = {
         Categories = {}
     },
     Addins = {
-        ["bHud"] = false,
+        ["bHud"] = {enabled = false},
+        ["regenHealth"] = {enabled = false},
     },
     Groups = {
         ["user"] = {

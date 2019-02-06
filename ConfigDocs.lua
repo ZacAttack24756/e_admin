@@ -5,11 +5,22 @@
 
     Prefix              [String]    :   The 1 character that will be the prefix for most chat commands, Is Case Sensitive
     Command             [Table]
-        Categories      [Array:Tab] :   An Array of User Defined Categories
+        Categories      [Array:Tab] :   An Array of User Defined Command Categories
+    Addins              [Tab:Tab]   :   Certian Add-ins that comes with the script that can be toggled
     Groups              [Array:Tab] :   The Main Group Startup Configuration (See "Group Making")
     Chat                [Tab]       :   A Table containing settings related to chat (See "Chat Options")
 
-
+    ----    Addins    ----
+    {
+        "bHud"          [Tab]       :   Options for bHud
+        {
+            "enabled"       [bool]  :   If the module is enabled
+        }
+        "regenHealth"   [Tab]       :   Options for regenHealth
+        {
+            "enabled"       [bool]  :   If the module is enabled
+        }
+    }
 	----    Group Making    ----
 
 	Text in '[""]' is the group's name
