@@ -4,9 +4,9 @@ local Settings = {
     Command = {
         Categories = {}
     },
-    Addins = {
-        ["bHud"] = {enabled = false},
-        ["regenHealth"] = {enabled = false},
+    Modules = {
+        ["bHud"] = {Enabled = false},
+        ["regenHealth"] = {Enabled = false},
     },
     Groups = {
         ["user"] = {

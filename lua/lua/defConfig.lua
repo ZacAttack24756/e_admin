@@ -10,9 +10,9 @@ Prefix = "!",
 Command = {
     Categories = {},
 },
-Addins = {
-    ["bHud"] = false,
-    ["regenHealth"] = false,
+Modules = {
+    ["bHud"] = {Enabled = false},
+    ["regenHealth"] = {Enabled = true, tickTime = 15, tickHealth = 5},
 },
 Groups = {
     ["user"] = {

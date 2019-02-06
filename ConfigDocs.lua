@@ -6,19 +6,21 @@
     Prefix              [String]    :   The 1 character that will be the prefix for most chat commands, Is Case Sensitive
     Command             [Table]
         Categories      [Array:Tab] :   An Array of User Defined Command Categories
-    Addins              [Tab:Tab]   :   Certian Add-ins that comes with the script that can be toggled
+    Modules             [Tab:Tab]   :   Certian built-in scripts/content can be toggled
     Groups              [Array:Tab] :   The Main Group Startup Configuration (See "Group Making")
     Chat                [Tab]       :   A Table containing settings related to chat (See "Chat Options")
 
-    ----    Addins    ----
+    ----    Modules    ----
     {
         "bHud"          [Tab]       :   Options for bHud
         {
-            "enabled"       [bool]  :   If the module is enabled
+            "Enabled"       [Bool]  :   If the module is enabled
         }
         "regenHealth"   [Tab]       :   Options for regenHealth
         {
-            "enabled"       [bool]  :   If the module is enabled
+            "Enabled"       [Bool]  :   If the module is enabled
+            "tickTime"      [Num]   :   The amount of seconds per tick (How often the script executes)
+            "tickHealth"    [Num]   :   The amount of heath regenerated per tick
         }
     }
 	----    Group Making    ----
